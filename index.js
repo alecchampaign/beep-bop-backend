@@ -19,7 +19,7 @@ app.get('/api/videos/:fileName', (req, res) => {
   res.sendFile(fileName, options, (err) => {
     if (err) {
       console.error('ERROR: ', err);
-      res.sendStatus(404);
+      // res.sendStatus(404);
     } else console.log('Sent: ', fileName);
   });
 });
