@@ -20,6 +20,7 @@
   "homepage": "https://github.com/alecchampaign/beep-bop-backend#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
     "node": "^14.0.0"
   }
 }

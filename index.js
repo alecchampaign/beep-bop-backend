@@ -1,11 +1,24 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 
 const PORT = process.env.PORT || 4000;
 
 app.use(bodyParser());
 
-app.get('/api/videos', (req, res) => {});
+app.get('/api/videos/:fileName', (req, res) => {
+  const fileName = req.params.fileName;
+  const options = {
+    root: path.join(__dirname, 'videos'),
+  };
+  res.sendFile(fileName, options, (err) => {
+    if (err) {
+      console.error('ERROR: ', err);
+      res.sendStatus(404);
+    } else console.log('Sent: ', fileName);
+  });
+});
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
