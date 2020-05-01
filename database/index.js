@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGO_URL, (err) => {
 
 const userSchema = mongoose.Schema({
   username: String,
-  passord: String,
+  password: String,
 });
 
 const User = mongoose.model('User', userSchema);

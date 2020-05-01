@@ -4,7 +4,13 @@ services:
   mongo:
     image: mongo
     restart: always
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - 27017:27017
     environment:
+      MONGO_INITDB_DATABASE: <DATABASE TO CREATE>
       MONGO_INTIDB_ROOT_USERNAME: <USER>
       MONGO_INITDB_ROOT_PASSWORD: <PASS>
 
@@ -27,4 +33,4 @@ services:
     environment:
       MONGO_PASS: <PASS>
       MONGO_USER: <USER>
-      MONGO_URL: mongodb://mongo:27017/users
+      MONGO_URL: mongodb://<USER>:<PASS>@mongo:27017/users
