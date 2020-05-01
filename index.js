@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
+const User = require('./database/index.js');
+
 const PORT = process.env.PORT || 4000;
 
 app.use(bodyParser());
@@ -36,6 +38,17 @@ app.post('/api/upload', (req, res) => {
       return res.sendStatus(500);
     }
     res.sendStatus(201);
+  });
+});
+
+app.post('/testroute', (req, res) => {
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  user.save((err) => {
+    if (err) res.send(err);
+    else res.send(user);
   });
 });
 

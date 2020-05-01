@@ -26,4 +26,5 @@ services:
       - 4000:4000
     environment:
       MONGO_PASS: <PASS>
-      MONGO_USER: <USER
+      MONGO_USER: <USER>
+      MONGO_URL: mongodb://mongo:27017/users

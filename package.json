@@ -22,6 +22,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.3",
+    "mongoose": "^5.9.11",
     "node": "^14.0.0"
   }
 }
